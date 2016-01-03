@@ -1,4 +1,6 @@
 def patternCount(pattern, text):
+    pattern = pattern.replace(' ','')
+    text = text.replace(' ','')
     count = 0
     for i in range(0, len(text) - len(pattern) + 1):
         #print pattern

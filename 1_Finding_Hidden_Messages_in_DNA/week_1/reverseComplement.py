@@ -1,6 +1,7 @@
 import sys
 
 def reverseComplement(text):
+    text = text.replace(' ','')
     fileHandle = open('result.txt', 'w')
     for i in range(1, len(text) + 1):
         if cmp(text[len(text) - i], 'A') == 0: 
