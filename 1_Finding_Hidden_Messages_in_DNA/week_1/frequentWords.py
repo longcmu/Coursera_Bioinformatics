@@ -2,7 +2,7 @@ from patternCount import patternCount
 
 def frequentWords(text, length):
     text = text.replace(' ','')
-    dict = {}
+    dict = dict()
     maxLen = 1
     for i in range(0, len(text) - length + 1):
         pattern = text[i : i + length]
