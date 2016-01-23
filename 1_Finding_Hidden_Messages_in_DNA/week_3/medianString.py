@@ -1,12 +1,14 @@
-from hammingDistance import hammingDistance
+import sys
 import math
+from hammingDistance import hammingDistance
 
-def motifEnumeration(input, k, d):
+def medianString(input, k):
     dnas = input.split()
-    patterns = []
+    distance = sys.maxint
     kmers = []
+    median = ''
     for i in range(0, int(math.pow(4, k))):
-        cur = i;
+        cur = i
         sb = ''
         for j in range(0, k):
             if cur % 4 == 0:
@@ -20,17 +22,16 @@ def motifEnumeration(input, k, d):
             cur = cur / 4
         kmers.append(sb)
     for kmer in kmers:
-        count = 0
+        distanceSum = 0
         for dna in dnas:
+            d = sys.maxint 
             for i in range(0, len(dna) - k + 1):
-                if hammingDistance(kmer, dna[i:i+k]) <= d:
-                    count = count + 1
-                    break
-        if count == len(dnas):
-            patterns.append(kmer)
-    patterns = set(patterns)
-    for p in patterns:
-    	print p
-    return
-
-
+                if hammingDistance(kmer, dna[i:i+k]) < d:
+                    d = hammingDistance(kmer, dna[i:i+k])
+            distanceSum = distanceSum + d
+        if distanceSum < distance:
+            distance = distanceSum
+            median = kmer
+    print distance
+    print median
+    return  
