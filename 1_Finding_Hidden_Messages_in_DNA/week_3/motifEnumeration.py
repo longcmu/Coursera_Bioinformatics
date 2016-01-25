@@ -30,7 +30,7 @@ def motifEnumeration(input, k, d):
             patterns.append(kmer)
     patterns = set(patterns)
     for p in patterns:
-    	print p
+        print p
     return
 
 
