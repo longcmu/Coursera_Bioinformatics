@@ -10,9 +10,9 @@ def frequentWordsWithMismatches(text, k, d):
         for j in range(0, k):
             if cur % 4 == 0:
                 sb = sb + 'A'
-            elif cur % 3 == 1:
+            elif cur % 4 == 1:
                 sb = sb + 'C'
-            elif cur % 3 == 2:
+            elif cur % 4 == 2:
                 sb = sb + 'G'
             else:
                 sb = sb + 'T'
